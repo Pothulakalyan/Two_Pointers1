@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+    vector<int>ve(n);
+    for(int i=0;i<n;i++){
+        cin>>ve[i];
+    }
+    
+    // by GFG live
+    int start=0;
+    for(int i=0;i<n;i++){
+        if(ve[i]!=0){
+            ve[start]=ve[i];
+            start+=1;
+        }
+    }
+    first non zeroes elements anni left ki thechhukuna now reaminig Anni kkudaa Zeroes Pettesta
+    for(int j=start+1;j<n;j++){
+        
+        ve[j]=0;
+    }
+    for(auto it:ve) cout<<it<<" ";
+}
