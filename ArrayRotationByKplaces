@@ -1,0 +1,29 @@
+import java.util.*;
+public class rotateArray{
+    static void arrayRotation(int arr[],int n,int r){
+        r=r%n;
+        int temp[]=new int[r];
+        for(int i=0;i<r;i++){
+            temp[i]=arr[i];
+        }
+        for(int i=r;i<=n-1;i++){
+            arr[i-r]=arr[i];
+        }
+        for(int i=0;i<r;i++){
+            arr[n-r+i]=temp[i];
+        }
+    }
+    public static void main(String args[]){
+        Scanner k=new Scanner(System.in);
+        int n;
+        n=k.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=k.nextInt();
+        }
+        int r=k.nextInt();
+        arrayRotation(arr,n,r);
+        for(int ele:arr) System.out.print(ele+" ");
+    }
+    
+}
