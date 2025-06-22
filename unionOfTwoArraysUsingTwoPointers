@@ -1,0 +1,60 @@
+import java.util.*;
+
+public class sample {
+    public static ArrayList<Integer> unique_elements(int ar[], int br[], int n, int m) {
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        int i = 0, j = 0;
+
+        while (i < n && j < m) {
+            if (ar[i] <= br[j]) {
+                if (ans.isEmpty() || ans.get(ans.size() - 1) != ar[i]) {
+                    ans.add(ar[i]);
+                }
+                i++;
+            } else {
+                if (ans.isEmpty() || ans.get(ans.size() - 1) != br[j]) {
+                    ans.add(br[j]);
+                }
+                j++;
+            }
+        }
+
+        while (i < n) {
+            if (ans.isEmpty() || ans.get(ans.size() - 1) != ar[i]) {
+                ans.add(ar[i]);
+            }
+            i++;
+        }
+
+        while (j < m) {
+            if (ans.isEmpty() || ans.get(ans.size() - 1) != br[j]) {
+                ans.add(br[j]);
+            }
+            j++;
+        }
+
+        return ans;
+    }
+
+    public static void main(String args[]) {
+        Scanner k = new Scanner(System.in);
+        int n = k.nextInt();
+        int m = k.nextInt();
+
+        int a[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = k.nextInt();
+        }
+
+        int b[] = new int[m];
+        for (int i = 0; i < m; i++) {
+            b[i] = k.nextInt();
+        }
+
+        ArrayList<Integer> ans = unique_elements(a, b, n, m);
+
+        for (int x : ans) {
+            System.out.print(x + " ");
+        }
+    }
+}
